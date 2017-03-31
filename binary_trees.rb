@@ -46,7 +46,7 @@ class BinaryTree
 	def breadth_first_search num,current = @root, q = ["empty"]
 
 		if current.value == num
-			return  current
+			return  "the number #{num} has been found"
 
 		else
 			q << current.l_child if current.l_child != nil
@@ -57,8 +57,8 @@ class BinaryTree
 
 			q.each do |c|
 				
-				if  breadth_first_search(num,c,q) != nil
-					return 	c.value
+				if  breadth_first_search(num,c,q) == "the number #{num} has been found"
+					return 	"the number #{num} has been found"
 
 			
 				end
@@ -75,7 +75,7 @@ class BinaryTree
 		if current== nil
 			return 
 		end
-		
+
 		if current.value == num
 			puts "#{current} is the match of #{current.value}"
 		end
@@ -96,4 +96,4 @@ a = [12, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]
 
 b = BinaryTree.new a
 b.build_tree a
-b.depth_first_search 12
+b.breadth_first_search 4
